@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="ExecutorService_invokeAny_2_4"
+  id="myeclipse.1423185150531"
+  context-root="/ExecutorService_invokeAny_2_3"
+  j2ee-spec="5.0"
+  archive="ExecutorService_invokeAny_2_4.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

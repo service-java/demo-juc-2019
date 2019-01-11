@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="CountDownLatch_test1"
+  id="myeclipse.1416470149859"
+  context-root="/CountDownLatch_test1"
+  j2ee-spec="5.0"
+  archive="CountDownLatch_test1.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

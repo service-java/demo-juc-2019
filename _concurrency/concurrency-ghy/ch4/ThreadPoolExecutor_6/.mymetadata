@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="ThreadPoolExecutor_6"
+  id="myeclipse.1422775118375"
+  context-root="/z2"
+  j2ee-spec="5.0"
+  archive="ThreadPoolExecutor_6.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

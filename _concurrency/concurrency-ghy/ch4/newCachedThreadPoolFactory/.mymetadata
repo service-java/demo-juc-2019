@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="newCachedThreadPoolFactory"
+  id="myeclipse.1431935248000"
+  context-root="/newCachedThreadPoolFactory"
+  j2ee-spec="5.0"
+  archive="newCachedThreadPoolFactory.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

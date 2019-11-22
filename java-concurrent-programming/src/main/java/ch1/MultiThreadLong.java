@@ -1,5 +1,10 @@
 package ch1;
 
+/**
+ * long类型
+ *
+ * 没有输出???
+ */
 public class MultiThreadLong {
     public static long t = 0;
 

@@ -13,7 +13,6 @@ public class LockSupportIntDemo {
             super.setName(name);
         }
 
-
         public void run() {
             synchronized (u) {
                 System.out.println("in " + getName());

@@ -15,7 +15,6 @@ public class CyclicBarrierDemo {
             this.soldier = soldier;
         }
 
-
         public void run() {
             try {
                 cyclic.await();
@@ -47,7 +46,6 @@ public class CyclicBarrierDemo {
             this.N = N;
         }
 
-
         public void run() {
             if (flag) {
                 System.out.println("司令：【士兵" + N + "个，任务完成！】");
@@ -62,6 +60,8 @@ public class CyclicBarrierDemo {
         final int N = 10;
         Thread[] allSoldiers = new Thread[N];
         boolean flag = false;
+
+
         CyclicBarrier cyclic = new CyclicBarrier(N, new BarrierRun(flag, N));
         System.out.println("集合队伍");
         for (int i = 0; i < N; i++) {

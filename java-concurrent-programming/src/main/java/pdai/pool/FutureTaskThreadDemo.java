@@ -13,13 +13,13 @@ import java.util.concurrent.FutureTask;
 public class FutureTaskThreadDemo {
 
     // 继承Callable接口,实现call()方法,泛型参数为要返回的类型
-    static class Task  implements Callable<Integer> {
+    static class Task implements Callable<Integer> {
 
         @Override
         public Integer call() throws Exception {
             System.out.println("Thread [" + Thread.currentThread().getName() + "] is running");
             int result = 0;
-            for(int i = 0; i < 100;++i) {
+            for (int i = 0; i < 100; ++i) {
                 result += i;
             }
 
@@ -68,7 +68,7 @@ public class FutureTaskThreadDemo {
         System.out.println("Thread [" + Thread.currentThread().getName() + "] is running");
 
         // 4. 调用isDone()判断任务是否结束
-        if(!futureTask.isDone()) {
+        if (!futureTask.isDone()) {
             System.out.println("Task is not done");
             try {
                 Thread.sleep(2000);

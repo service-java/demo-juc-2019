@@ -38,8 +38,8 @@ public class ExtThreadPool {
                 System.out.println("线程池退出！");
             }
         };
-        for(int i =0;i<5;i++){
-            MyTask task = new MyTask("TASK-GEYM-"+i);
+        for (int i = 0; i < 5; i++) {
+            MyTask task = new MyTask("TASK-GEYM-" + i);
             es.execute(task);
             Thread.sleep(10);
         }

@@ -6,8 +6,9 @@ public class FalseSharing implements Runnable {
     private final int arrayIndex;
 
     private static VolatileLong[] longs = new VolatileLong[NUM_THREADS];
+
     static {
-        for(int i=0;i<longs.length;i++){
+        for (int i = 0; i < longs.length; i++) {
             longs[i] = new VolatileLong();
         }
     }
@@ -25,23 +26,23 @@ public class FalseSharing implements Runnable {
     private static void runTest() throws InterruptedException {
         Thread[] threads = new Thread[NUM_THREADS];
 
-        for(int i=0;i< threads.length;i++){
+        for (int i = 0; i < threads.length; i++) {
             threads[i] = new Thread(new FalseSharing(i));
         }
 
-        for(Thread t: threads){
+        for (Thread t : threads) {
             t.start();
         }
 
-        for(Thread t:threads){
+        for (Thread t : threads) {
             t.join();
         }
     }
 
     @Override
     public void run() {
-        long i = ITERATIONS +1;
-        while(0!= --i){
+        long i = ITERATIONS + 1;
+        while (0 != --i) {
             longs[arrayIndex].value = i;
         }
     }

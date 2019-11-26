@@ -4,19 +4,19 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 public class Example4 {
-    public static Integer calc(Integer para){
+    public static Integer calc(Integer para) {
         return para / 0;
     }
 
-    public static void main(String []args) throws ExecutionException, InterruptedException {
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
         CompletableFuture<Void> fu = CompletableFuture
-                .supplyAsync(()->calc(50))
+                .supplyAsync(() -> calc(50))
                 .exceptionally(ex -> {
                     System.out.println(ex.toString());
                     return 0;
                 })
-                .thenApply((i)->Integer.toString(i))
-                .thenApply((str)->"\""+str+"\"")
+                .thenApply((i) -> Integer.toString(i))
+                .thenApply((str) -> "\"" + str + "\"")
                 .thenAccept(System.out::println);
         fu.get();
     }

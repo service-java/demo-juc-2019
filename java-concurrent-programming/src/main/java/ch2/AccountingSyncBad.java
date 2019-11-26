@@ -1,6 +1,6 @@
 package ch2;
 
-public class AccountingSyncBad implements Runnable{
+public class AccountingSyncBad implements Runnable {
 
     static int i = 0;
 

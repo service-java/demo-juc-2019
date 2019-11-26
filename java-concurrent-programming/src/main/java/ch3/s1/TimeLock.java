@@ -16,12 +16,12 @@ public class TimeLock implements Runnable {
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
-            if(lock.isHeldByCurrentThread())
+            if (lock.isHeldByCurrentThread())
                 lock.unlock();
         }
     }
 
-    public static void main(String [] args){
+    public static void main(String[] args) {
         TimeLock lock1 = new TimeLock();
         Thread t1 = new Thread(lock1);
         Thread t2 = new Thread(lock1);

@@ -11,12 +11,12 @@ public class Producer {
         this.ringBuffer = ringBuffer;
     }
 
-    public void pushData(ByteBuffer bb){
+    public void pushData(ByteBuffer bb) {
         long sequence = ringBuffer.next();
-        try{
+        try {
             PCData event = ringBuffer.get(sequence);
             event.set(bb.getLong(0));
-        }finally {
+        } finally {
             ringBuffer.publish(sequence);
         }
     }

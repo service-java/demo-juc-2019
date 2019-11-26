@@ -29,7 +29,7 @@ public class Depot {
         int left = no;
         try {
             while (left > 0) {
-                while (size >= capacity)  {
+                while (size >= capacity) {
                     System.out.println(Thread.currentThread() + " before await");
                     fullCondition.await();
                     System.out.println(Thread.currentThread() + " after await");

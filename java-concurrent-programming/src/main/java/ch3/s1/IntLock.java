@@ -5,12 +5,12 @@ import java.util.concurrent.locks.ReentrantLock;
 public class IntLock implements Runnable {
     public static ReentrantLock lock1 = new ReentrantLock();
     public static ReentrantLock lock2 = new ReentrantLock();
+
     int lock;
 
     public IntLock(int lock) {
         this.lock = lock;
     }
-
 
     public void run() {
         try {
@@ -43,5 +43,6 @@ public class IntLock implements Runnable {
         t2.start();
         Thread.sleep(1000);
         t2.interrupt();
+
     }
 }

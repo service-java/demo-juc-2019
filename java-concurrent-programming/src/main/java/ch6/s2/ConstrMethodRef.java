@@ -28,8 +28,8 @@ public class ConstrMethodRef {
 
     public static void main(String[] args) {
         List<User> users = new ArrayList<User>();
-        for(int i=0;i<10;i++){
-            users.add(uf.create(i,"billy"+Integer.toString(i)));
+        for (int i = 0; i < 10; i++) {
+            users.add(uf.create(i, "billy" + Integer.toString(i)));
         }
         users.stream().map(User::getName).forEach(System.out::println);
     }

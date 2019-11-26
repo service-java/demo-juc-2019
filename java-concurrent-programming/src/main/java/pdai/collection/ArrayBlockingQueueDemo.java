@@ -17,6 +17,6 @@ public class ArrayBlockingQueueDemo {
         BlockingQueue<String> queue = new ArrayBlockingQueue<String>(1024);
         queue.put("1");
         String string = queue.take();
-            Console.log(string);
+        Console.log(string);
     }
 }

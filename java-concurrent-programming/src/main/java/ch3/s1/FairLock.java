@@ -7,20 +7,20 @@ public class FairLock implements Runnable {
 //    public static ReentrantLock fairLock = new ReentrantLock();
 
     public void run() {
-        while (true){
+        while (true) {
             try {
                 fairLock.lock();
                 System.out.println(Thread.currentThread().getName());
-            }finally {
+            } finally {
                 fairLock.unlock();
             }
         }
     }
 
-    public static void main(String [] args){
+    public static void main(String[] args) {
         FairLock r1 = new FairLock();
-        Thread t1 = new Thread(r1,"Thread_t1");
-        Thread t2 = new Thread(r1,"Thread_t2");
+        Thread t1 = new Thread(r1, "Thread_t1");
+        Thread t2 = new Thread(r1, "Thread_t2");
         t1.start();
         t2.start();
     }

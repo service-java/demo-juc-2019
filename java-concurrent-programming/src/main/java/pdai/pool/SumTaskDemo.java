@@ -28,10 +28,10 @@ public class SumTaskDemo {
         @Override
         protected Integer compute() {
             //如果计算量小于1000，那么分配一个线程执行if中的代码块，并返回执行结果
-            if(end - start < 1000) {
+            if (end - start < 1000) {
                 System.out.println(Thread.currentThread().getName() + " 开始执行: " + start + "-" + end);
                 int sum = 0;
-                for(int i = start; i <= end; i++)
+                for (int i = start; i <= end; i++)
                     sum += i;
                 return sum;
             }

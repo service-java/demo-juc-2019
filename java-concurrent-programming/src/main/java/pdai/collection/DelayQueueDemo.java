@@ -21,7 +21,7 @@ public class DelayQueueDemo {
         Delayed element2 = queue.take();
         Console.log(element2);
 
-/*        pdai.collection.example.DelayedElement@28a418fc*/
+        /*        pdai.collection.example.DelayedElement@28a418fc*/
 
     }
 }

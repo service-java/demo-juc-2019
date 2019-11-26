@@ -23,7 +23,7 @@ public class Main {
                 executor,
                 ProducerType.MULTI,
                 new BlockingWaitStrategy()
-                );
+        );
         disruptor.handleEventsWithWorkerPool(
                 new Consumer(),
                 new Consumer(),
@@ -40,7 +40,7 @@ public class Main {
             bb.putLong(0, l);
             producer.pushData(bb);
             Thread.sleep(100);
-            System.out.println("add data "+l);
+            System.out.println("add data " + l);
         }
     }
 }

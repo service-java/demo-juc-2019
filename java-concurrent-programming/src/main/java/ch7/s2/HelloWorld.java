@@ -16,10 +16,10 @@ public class HelloWorld extends UntypedActor {
 
     @Override
     public void onReceive(Object msg) throws Exception {
-        if(msg == Greeter.Msg.DONE){
+        if (msg == Greeter.Msg.DONE) {
             greeter.tell(Greeter.Msg.GREET, getSelf());
             getContext().stop(getSelf());
-        }else{
+        } else {
             unhandled(msg);
         }
     }

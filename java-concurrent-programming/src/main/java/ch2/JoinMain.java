@@ -3,11 +3,11 @@ package ch2;
 public class JoinMain {
     public static volatile int i = 0;
 
-    public static class AddThread extends Thread{
+    public static class AddThread extends Thread {
 
 
         public void run() {
-            for(i=0;i<10000000;i++){
+            for (i = 0; i < 10000000; i++) {
             }
         }
     }

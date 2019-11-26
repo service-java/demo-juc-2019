@@ -5,7 +5,7 @@ public class FutureData implements Data {
     protected boolean isReady = false;
 
     public synchronized void setRealData(RealData realData) {
-        if(isReady){
+        if (isReady) {
             return;
         }
         this.realData = realData;
@@ -15,7 +15,7 @@ public class FutureData implements Data {
 
     @Override
     public synchronized String getResult() {
-        while (!isReady){
+        while (!isReady) {
             try {
                 wait();
             } catch (InterruptedException e) {

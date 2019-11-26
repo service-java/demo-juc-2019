@@ -1,7 +1,7 @@
 package ch5.s5.s2;
 
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Client client = new Client();
         Data data = client.request("name");
         System.out.println("请求完毕");

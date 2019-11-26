@@ -6,7 +6,8 @@ import akka.event.LoggingAdapter;
 
 public class MyWorker extends UntypedActor {
     private final LoggingAdapter log = Logging.getLogger(getContext().system(), this);
-    public static enum Msg{
+
+    public static enum Msg {
         WORKING, DONE, CLOSE;
     }
 
@@ -23,17 +24,17 @@ public class MyWorker extends UntypedActor {
 
     @Override
     public void onReceive(Object msg) throws Exception {
-        if(msg == Msg.WORKING){
+        if (msg == Msg.WORKING) {
             System.out.println("I am working");
         }
-        if(msg == Msg.DONE){
+        if (msg == Msg.DONE) {
             System.out.println("Stop working");
         }
-        if(msg == Msg.CLOSE){
+        if (msg == Msg.CLOSE) {
             System.out.println("I will shutdown");
-            getSender().tell(Msg.CLOSE,getSelf());
+            getSender().tell(Msg.CLOSE, getSelf());
             getContext().stop(getSelf());
-        }else{
+        } else {
             unhandled(msg);
         }
     }

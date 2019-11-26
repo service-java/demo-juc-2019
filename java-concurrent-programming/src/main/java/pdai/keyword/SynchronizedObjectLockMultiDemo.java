@@ -24,7 +24,7 @@ public class SynchronizedObjectLockMultiDemo implements Runnable {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println("block1锁,"+Thread.currentThread().getName() + "结束");
+            System.out.println("block1锁," + Thread.currentThread().getName() + "结束");
         }
 
         synchronized (block2) {
@@ -34,7 +34,7 @@ public class SynchronizedObjectLockMultiDemo implements Runnable {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println("block2锁,"+Thread.currentThread().getName() + "结束");
+            System.out.println("block2锁," + Thread.currentThread().getName() + "结束");
         }
     }
 

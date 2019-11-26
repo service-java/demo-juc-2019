@@ -6,7 +6,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingDeque;
 
 public class Main {
-    public static void main(String[]args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
         BlockingQueue<PCData> queue = new LinkedBlockingDeque<PCData>(10);
         Producer producer1 = new Producer(queue);
         Producer producer2 = new Producer(queue);
@@ -21,7 +21,7 @@ public class Main {
         service.execute(consumer1);
         service.execute(consumer2);
         service.execute(consumer3);
-        Thread.sleep(10*1000);
+        Thread.sleep(10 * 1000);
         producer1.stop();
         producer2.stop();
         producer3.stop();

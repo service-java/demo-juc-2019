@@ -8,6 +8,7 @@ package pdai.lock.example;
  */
 public class Producer {
     private Depot depot;
+
     public Producer(Depot depot) {
         this.depot = depot;
     }

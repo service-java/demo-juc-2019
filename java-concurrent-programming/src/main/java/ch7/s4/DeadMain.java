@@ -7,7 +7,7 @@ import akka.actor.Props;
 import com.typesafe.config.ConfigFactory;
 
 public class DeadMain {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         ActorSystem system = ActorSystem.create("deadwatch", ConfigFactory.load("samplehello.conf"));
         ActorRef worker = system.actorOf(Props.create(MyWorker.class), "worker");
         system.actorOf(Props.create(WatchActor.class, worker), "watcher");

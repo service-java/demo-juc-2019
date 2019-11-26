@@ -12,7 +12,7 @@ public class AtomicIntegerArrayDemo {
 
 
     public static void main(String[] args) throws InterruptedException {
-        AtomicIntegerArray array = new AtomicIntegerArray(new int[] { 0, 0 });
+        AtomicIntegerArray array = new AtomicIntegerArray(new int[]{0, 0});
         System.out.println(array);
         System.out.println(array.getAndAdd(1, 2));
         System.out.println(array);

@@ -9,6 +9,7 @@ package pdai.lock.example;
 public class Consumer {
 
     private Depot depot;
+
     public Consumer(Depot depot) {
         this.depot = depot;
     }

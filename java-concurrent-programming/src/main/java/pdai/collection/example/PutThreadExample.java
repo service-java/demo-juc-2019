@@ -10,6 +10,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
  */
 public class PutThreadExample extends Thread {
     private ConcurrentLinkedQueue<Integer> clq;
+
     public PutThreadExample(ConcurrentLinkedQueue<Integer> clq) {
         this.clq = clq;
     }

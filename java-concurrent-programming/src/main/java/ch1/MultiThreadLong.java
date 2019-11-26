@@ -2,7 +2,7 @@ package ch1;
 
 /**
  * long类型
- *
+ * <p>
  * 没有输出???
  */
 public class MultiThreadLong {

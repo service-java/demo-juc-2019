@@ -4,8 +4,8 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 public class Example2 {
-    public static Integer calc(Integer para){
-        try{
+    public static Integer calc(Integer para) {
+        try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -14,7 +14,7 @@ public class Example2 {
     }
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
-        final CompletableFuture<Integer> future = CompletableFuture.supplyAsync(()->calc(50));
+        final CompletableFuture<Integer> future = CompletableFuture.supplyAsync(() -> calc(50));
         System.out.println(future.get());
     }
 }

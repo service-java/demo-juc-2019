@@ -27,7 +27,7 @@ public class RejectThreadPoolDemo {
                         System.out.println(r.toString() + " is discard");
                     }
                 });
-        for(int i=0;i<Integer.MAX_VALUE;i++){
+        for (int i = 0; i < Integer.MAX_VALUE; i++) {
             es.submit(task);
             Thread.sleep(10);
         }

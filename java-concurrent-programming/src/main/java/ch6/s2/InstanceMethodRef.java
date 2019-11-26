@@ -5,7 +5,7 @@ import java.util.List;
 
 public class InstanceMethodRef {
 
-    static class User{
+    static class User {
         private int num;
         private String name;
 
@@ -19,10 +19,10 @@ public class InstanceMethodRef {
         }
     }
 
-    public static void main(String[] args){
-        List<User> users=new ArrayList<User>();
-        for(int i=1;i<10;i++){
-            users.add(new User(i,"billy"+Integer.toString(i)));
+    public static void main(String[] args) {
+        List<User> users = new ArrayList<User>();
+        for (int i = 1; i < 10; i++) {
+            users.add(new User(i, "billy" + Integer.toString(i)));
         }
         users.stream().map(User::getName).forEach(System.out::println);
     }

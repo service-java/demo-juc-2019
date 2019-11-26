@@ -13,7 +13,7 @@ public class SynchronizedObjectClazzDemo implements Runnable {
     @Override
     public void run() {
         // 所有线程需要的锁都是同一把
-        synchronized(SynchronizedObjectClazzDemo.class){
+        synchronized (SynchronizedObjectClazzDemo.class) {
             System.out.println("我是线程" + Thread.currentThread().getName());
             try {
                 Thread.sleep(1000);

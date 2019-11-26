@@ -3,15 +3,16 @@ package ch7.s2;
 import akka.actor.UntypedActor;
 
 public class Greeter extends UntypedActor {
-    public static enum Msg{
+    public static enum Msg {
         GREET, DONE;
     }
+
     @Override
     public void onReceive(Object msg) {
-        if(msg == Msg.GREET){
+        if (msg == Msg.GREET) {
             System.out.println("Hello World!");
             getSender().tell(Msg.DONE, getSelf());
-        }else{
+        } else {
             unhandled(msg);
         }
     }

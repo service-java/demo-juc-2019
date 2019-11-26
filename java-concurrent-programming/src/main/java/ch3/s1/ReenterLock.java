@@ -4,15 +4,15 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class ReenterLock implements Runnable {
     public static ReentrantLock lock = new ReentrantLock();
-    public static int i=0;
+    public static int i = 0;
 
     public void run() {
-        for(int j=0;j<10000000;j++){
+        for (int j = 0; j < 10000000; j++) {
             lock.lock();
 //            lock.lock();
             try {
                 i++;
-            }finally {
+            } finally {
                 lock.unlock();
 //                lock.unlock();
             }

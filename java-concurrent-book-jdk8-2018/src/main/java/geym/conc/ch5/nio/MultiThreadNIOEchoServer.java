@@ -19,7 +19,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class MultiThreadNIOEchoServer {
-	public static Map<Socket,Long> time_stat=new HashMap<Socket,Long>(10240);
+    public static Map<Socket, Long> time_stat = new HashMap<Socket, Long>(10240);
+
     class EchoClient {
         private LinkedList<ByteBuffer> outq;
 
@@ -38,13 +39,15 @@ public class MultiThreadNIOEchoServer {
         }
     }
 
-    class HandleMsg implements Runnable{
+    class HandleMsg implements Runnable {
         SelectionKey sk;
         ByteBuffer bb;
-        public HandleMsg(SelectionKey sk,ByteBuffer bb){
-            this.sk=sk;
-            this.bb=bb;
+
+        public HandleMsg(SelectionKey sk, ByteBuffer bb) {
+            this.sk = sk;
+            this.bb = bb;
         }
+
         @Override
         public void run() {
             EchoClient echoClient = (EchoClient) sk.attachment();
@@ -57,9 +60,10 @@ public class MultiThreadNIOEchoServer {
             selector.wakeup();
         }
     }
-    
+
     private Selector selector;
-    private ExecutorService  tp=Executors.newCachedThreadPool();
+    private ExecutorService tp = Executors.newCachedThreadPool();
+
     /**
      * Accept a new client and set it up for reading.
      */
@@ -108,7 +112,7 @@ public class MultiThreadNIOEchoServer {
 
         // Flip the buffer.
         bb.flip();
-        tp.execute(new HandleMsg(sk,bb));
+        tp.execute(new HandleMsg(sk, bb));
     }
 
     /**
@@ -172,31 +176,29 @@ public class MultiThreadNIOEchoServer {
 
         // Register the socket for select events.
         SelectionKey acceptKey = ssc.register(selector, SelectionKey.OP_ACCEPT);
-        
+
         // Loop forever.
-        for (;;) {
+        for (; ; ) {
             selector.select();
             Set readyKeys = selector.selectedKeys();
             Iterator i = readyKeys.iterator();
-            long e=0;
+            long e = 0;
             while (i.hasNext()) {
                 SelectionKey sk = (SelectionKey) i.next();
                 i.remove();
-                
+
                 if (sk.isAcceptable()) {
                     doAccept(sk);
-                }
-                else if (sk.isValid() && sk.isReadable()) {
-                	if(!time_stat.containsKey(((SocketChannel)sk.channel()).socket()))
-                		time_stat.put(((SocketChannel)sk.channel()).socket(), 
-                			System.currentTimeMillis());
+                } else if (sk.isValid() && sk.isReadable()) {
+                    if (!time_stat.containsKey(((SocketChannel) sk.channel()).socket()))
+                        time_stat.put(((SocketChannel) sk.channel()).socket(),
+                                System.currentTimeMillis());
                     doRead(sk);
-                }
-                else if (sk.isValid() && sk.isWritable()) {
+                } else if (sk.isValid() && sk.isWritable()) {
                     doWrite(sk);
-                    e=System.currentTimeMillis();
-                    long b=time_stat.remove(((SocketChannel)sk.channel()).socket());
-                    System.out.println("spend:"+(e-b)+"ms");
+                    e = System.currentTimeMillis();
+                    long b = time_stat.remove(((SocketChannel) sk.channel()).socket());
+                    System.out.println("spend:" + (e - b) + "ms");
                 }
             }
         }

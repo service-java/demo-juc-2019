@@ -11,6 +11,7 @@ import java.util.Iterator;
 
 public class NIOClient {
     private Selector selector;
+
     public void init(String ip, int port) throws IOException {
         SocketChannel channel = SocketChannel.open();
         channel.configureBlocking(false);
@@ -40,7 +41,7 @@ public class NIOClient {
 
     /**
      * 处理读取服务端发来的信息 的事件
-     * 
+     *
      * @param key
      * @throws IOException
      */
@@ -70,7 +71,7 @@ public class NIOClient {
 
     /**
      * 启动客户端测试
-     * 
+     *
      * @throws IOException
      */
     public static void main(String[] args) throws IOException {

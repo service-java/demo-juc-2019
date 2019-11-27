@@ -74,7 +74,7 @@ public class JMHSample_02_BenchmarkModes {
      * be replaced with just a single test like this:
      */
     @Benchmark
-    @BenchmarkMode({ Mode.Throughput, Mode.AverageTime, Mode.SampleTime, Mode.SingleShotTime })
+    @BenchmarkMode({Mode.Throughput, Mode.AverageTime, Mode.SampleTime, Mode.SingleShotTime})
     @OutputTimeUnit(TimeUnit.MICROSECONDS)
     public void measureMultiple() throws InterruptedException {
         TimeUnit.MILLISECONDS.sleep(100);

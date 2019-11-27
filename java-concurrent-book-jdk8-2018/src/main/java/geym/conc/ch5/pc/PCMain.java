@@ -6,7 +6,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class PCMain {
-	public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
         BlockingQueue<PCData> queue = new LinkedBlockingQueue<PCData>(10);
         Producer producer1 = new Producer(queue);
         Producer producer2 = new Producer(queue);

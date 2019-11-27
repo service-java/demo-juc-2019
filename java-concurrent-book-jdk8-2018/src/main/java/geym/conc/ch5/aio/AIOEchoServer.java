@@ -15,6 +15,7 @@ import java.util.concurrent.TimeoutException;
 public class AIOEchoServer {
     public final static int PORT = 8000;
     private AsynchronousServerSocketChannel server;
+
     public AIOEchoServer() throws IOException {
         server = AsynchronousServerSocketChannel.open().bind(new InetSocketAddress(PORT));
     }
@@ -24,14 +25,15 @@ public class AIOEchoServer {
         //注册事件和事件完成后的处理器
         server.accept(null, new CompletionHandler<AsynchronousSocketChannel, Object>() {
             final ByteBuffer buffer = ByteBuffer.allocate(1024);
+
             public void completed(AsynchronousSocketChannel result, Object attachment) {
                 System.out.println(Thread.currentThread().getName());
-                Future<Integer> writeResult=null;
+                Future<Integer> writeResult = null;
                 try {
                     buffer.clear();
                     result.read(buffer).get(100, TimeUnit.SECONDS);
                     buffer.flip();
-                    writeResult=result.write(buffer);
+                    writeResult = result.write(buffer);
                 } catch (InterruptedException | ExecutionException e) {
                     e.printStackTrace();
                 } catch (TimeoutException e) {

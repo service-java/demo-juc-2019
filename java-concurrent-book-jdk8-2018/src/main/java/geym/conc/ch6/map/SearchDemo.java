@@ -8,8 +8,8 @@ public class SearchDemo {
         for (int i = 1; i <= 100; i++) {
             map.put(Integer.toString(i), i);
         }
-        int found = map.search(Long.MAX_VALUE, (str,i)->{
-            if(i%2==0) {
+        int found = map.search(Long.MAX_VALUE, (str, i) -> {
+            if (i % 2 == 0) {
                 return i;
             }
             return null;

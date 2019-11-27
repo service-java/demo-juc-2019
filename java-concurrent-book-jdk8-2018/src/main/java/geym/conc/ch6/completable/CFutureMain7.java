@@ -22,9 +22,7 @@ public class CFutureMain7 {
             return 0;
         }).thenAccept(System.out::println);
 
-        try
-
-        {
+        try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
         }

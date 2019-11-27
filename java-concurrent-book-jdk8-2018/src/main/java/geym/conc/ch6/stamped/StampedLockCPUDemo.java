@@ -5,17 +5,17 @@ import java.util.concurrent.locks.StampedLock;
 
 /**
  * @author Administrator
- *
  */
 public class StampedLockCPUDemo {
     static Thread[] holdCpuThreads = new Thread[3];
     static final StampedLock lock = new StampedLock();
+
     public static void main(String[] args) throws InterruptedException {
         new Thread() {
             public void run() {
                 long readLong = lock.writeLock();
                 //LockSupport.parkNanos(600000000000L);
-                LockSupport.parkNanos(15L*1000*1000*1000);
+                LockSupport.parkNanos(15L * 1000 * 1000 * 1000);
                 lock.unlockWrite(readLong);
             }
         }.start();
@@ -34,7 +34,7 @@ public class StampedLockCPUDemo {
     private static class HoldCPUReadThread implements Runnable {
         public void run() {
             long lockr = lock.readLock();
-            System.out.println(Thread.currentThread().getName()+ " 获得读锁");
+            System.out.println(Thread.currentThread().getName() + " 获得读锁");
             lock.unlockRead(lockr);
         }
     }

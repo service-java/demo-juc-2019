@@ -2,9 +2,7 @@
 package geym.conc.ch2.stop;
 
 /**
- * 
  * @author geym
- *
  */
 public class StopThreadSafe2 {
     public static User u = new User();
@@ -42,11 +40,11 @@ public class StopThreadSafe2 {
     }
 
     public static class ChangeObjectThread extends Thread {
-        
+
         @Override
         public void run() {
             while (true) {
-                if (Thread.currentThread().isInterrupted()){
+                if (Thread.currentThread().isInterrupted()) {
                     System.out.println("exit with interrupted");
                     break;
                 }
@@ -58,7 +56,7 @@ public class StopThreadSafe2 {
                         Thread.sleep(100);
                     } catch (InterruptedException e) {
                         //重要，重置中断状态
-                        Thread.currentThread().interrupt();   
+                        Thread.currentThread().interrupt();
                     }
                     u.setName(String.valueOf(v));
                 }

@@ -15,11 +15,14 @@ public class ThreadLocalDemo_Gc {
         }
     };
     static volatile CountDownLatch cd = new CountDownLatch(10000);
+
     public static class ParseDate implements Runnable {
         int i = 0;
+
         public ParseDate(int i) {
             this.i = i;
         }
+
         public void run() {
             try {
                 if (tl.get() == null) {
@@ -57,7 +60,7 @@ public class ThreadLocalDemo_Gc {
         }
         cd.await();
         Thread.sleep(1000);
-        
+
         System.gc();
         System.out.println("second GC complete!!");
 

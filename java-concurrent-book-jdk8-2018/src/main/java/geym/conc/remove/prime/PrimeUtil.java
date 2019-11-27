@@ -6,7 +6,7 @@ public class PrimeUtil {
         boolean bo = true;
         int sqrt = (int) Math.sqrt(x);
         for (int i = 2; i < sqrt; i++) {
-            if (x/i==0) {
+            if (x / i == 0) {
                 bo = false;
                 break;
             }

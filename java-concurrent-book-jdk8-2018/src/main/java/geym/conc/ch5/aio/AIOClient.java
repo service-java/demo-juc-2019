@@ -19,7 +19,7 @@ public class AIOClient {
                     public void completed(Integer result, Object attachment) {
                         try {
                             ByteBuffer buffer = ByteBuffer.allocate(1024);
-                            client.read(buffer,buffer,new CompletionHandler<Integer, ByteBuffer>(){
+                            client.read(buffer, buffer, new CompletionHandler<Integer, ByteBuffer>() {
                                 @Override
                                 public void completed(Integer result, ByteBuffer buffer) {
                                     buffer.flip();
@@ -30,6 +30,7 @@ public class AIOClient {
                                         e.printStackTrace();
                                     }
                                 }
+
                                 @Override
                                 public void failed(Throwable exc, ByteBuffer attachment) {
                                 }
@@ -38,11 +39,13 @@ public class AIOClient {
                             e.printStackTrace();
                         }
                     }
+
                     @Override
                     public void failed(Throwable exc, Object attachment) {
                     }
                 });
             }
+
             @Override
             public void failed(Throwable exc, Object attachment) {
             }

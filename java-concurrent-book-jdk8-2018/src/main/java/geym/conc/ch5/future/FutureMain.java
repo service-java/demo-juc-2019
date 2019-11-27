@@ -16,7 +16,7 @@ public class FutureMain {
 
         System.out.println("请求完毕");
         try {
-        //这里依然可以做额外的数据操作，这里使用sleep代替其他业务逻辑的处理
+            //这里依然可以做额外的数据操作，这里使用sleep代替其他业务逻辑的处理
             Thread.sleep(2000);
         } catch (InterruptedException e) {
         }

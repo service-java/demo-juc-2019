@@ -84,7 +84,7 @@ public class NIOEchoServer {
 
         // Flip the buffer.
         bb.flip();
-        
+
 
         EchoClient echoClient = (EchoClient) sk.attachment();
         echoClient.enqueue(bb);
@@ -157,7 +157,7 @@ public class NIOEchoServer {
         SelectionKey acceptKey = ssc.register(selector, SelectionKey.OP_ACCEPT);
 
         // Loop forever.
-        for (;;) {
+        for (; ; ) {
             selector.select();
             Set readyKeys = selector.selectedKeys();
             Iterator i = readyKeys.iterator();

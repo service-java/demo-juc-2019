@@ -4,9 +4,8 @@ import java.util.concurrent.CompletableFuture;
 
 /**
  * 脱离线程池的使用，仅作为一个契约
- * 
- * @author Geym
  *
+ * @author Geym
  */
 public class CFutureMain1 {
     public static class AskThread implements Runnable {

@@ -8,19 +8,20 @@ public class LockSupportIntDemo {
     static ChangeObjectThread t2 = new ChangeObjectThread("t2");
 
     public static class ChangeObjectThread extends Thread {
-        public ChangeObjectThread(String name){
+        public ChangeObjectThread(String name) {
             super.setName(name);
         }
+
         @Override
         public void run() {
             synchronized (u) {
-                System.out.println("in "+getName());
+                System.out.println("in " + getName());
                 LockSupport.park();
-                if(Thread.interrupted()){
-                    System.out.println(getName()+" 被中断了");
+                if (Thread.interrupted()) {
+                    System.out.println(getName() + " 被中断了");
                 }
             }
-            System.out.println(getName()+"执行结束");
+            System.out.println(getName() + "执行结束");
         }
     }
 

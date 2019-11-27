@@ -6,6 +6,7 @@ import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 
 public class CyclicBarrierDemo {
+
     public static class Soldier implements Runnable {
         private String soldier;
         private final CyclicBarrier cyclic;
@@ -17,10 +18,11 @@ public class CyclicBarrierDemo {
 
         public void run() {
             try {
-                //等待所有士兵到齐
+                // 等待所有士兵到齐
                 cyclic.await();
                 doWork();
-                //等待所有士兵完成工作
+
+                // 等待所有士兵完成工作
                 cyclic.await();
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -63,6 +65,7 @@ public class CyclicBarrierDemo {
         Thread[] allSoldier = new Thread[N];
         boolean flag = false;
         CyclicBarrier cyclic = new CyclicBarrier(N, new BarrierRun(flag, N));
+
         //设置屏障点，主要是为了执行这个方法
         System.out.println("集合队伍！");
         for (int i = 0; i < N; ++i) {

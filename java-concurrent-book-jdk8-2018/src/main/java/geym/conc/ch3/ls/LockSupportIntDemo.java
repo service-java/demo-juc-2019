@@ -17,6 +17,7 @@ public class LockSupportIntDemo {
             synchronized (u) {
                 System.out.println("in " + getName());
                 LockSupport.park();
+
                 if (Thread.interrupted()) {
                     System.out.println(getName() + " 被中断了");
                 }

@@ -1,8 +1,9 @@
 package geym.conc.ch6.flow;
-import java.util.Arrays;
 
-import java.util.concurrent.Flow.*;
-import java.util.concurrent.SubmissionPublisher;  
+import java.util.Arrays;
+import java.util.concurrent.Flow;
+import java.util.concurrent.SubmissionPublisher;
+
 
 public class FlowDemo
 {
@@ -11,7 +12,7 @@ public class FlowDemo
       // Create a publisher.
 
       SubmissionPublisher<String> publisher = new SubmissionPublisher<>();
-  
+
       // Create a subscriber and register it with the publisher.
 
       MySubscriber<String> subscriber = new MySubscriber<>();
@@ -43,12 +44,12 @@ public class FlowDemo
    }
 }
 
-class MySubscriber<T> implements Subscriber<T>
+class MySubscriber<T> implements Flow.Subscriber<T>
 {
-   private Subscription subscription;
+   private Flow.Subscription subscription;
 
    @Override
-   public void onSubscribe(Subscription subscription)
+   public void onSubscribe(Flow.Subscription subscription)
    {
       this.subscription = subscription;
       subscription.request(1);

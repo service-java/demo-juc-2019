@@ -1,6 +1,6 @@
 package geym.conc.ch6.flow;
 import java.util.Arrays;
-import java.util.concurrent.SubmissionPublisher;  
+import java.util.concurrent.SubmissionPublisher;
 
 public class FlowDemo2
 {
@@ -9,21 +9,21 @@ public class FlowDemo2
       // Create a publisher.
 
       SubmissionPublisher<String> publisher = new SubmissionPublisher<>();
-  
+
       // Create a subscriber and register it with the publisher.
 
       MySubscriber<String> subscriber = new MySubscriber<>();
       MySubscriber<String> subscriber2 = new MySubscriber<>();
-      
+
       TransformProcessor<String,String> toUpperCase = new TransformProcessor<>(String::toUpperCase);
       TransformProcessor<String,String> toLowverCase = new TransformProcessor<>(String::toLowerCase);
-      
+
       publisher.subscribe(toUpperCase);
       publisher.subscribe(toLowverCase);
-      
+
       toUpperCase.subscribe(subscriber);
       toLowverCase.subscribe(subscriber2);
-      
+
 
 
       // Publish several data items and then close the publisher.

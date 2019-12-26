@@ -28,6 +28,7 @@ public class ExtThreadPool {
 
     public static void main(String[] args) throws InterruptedException {
 
+        // 扩展线程池
         ExecutorService es = new ThreadPoolExecutor(5, 5, 0L, TimeUnit.MILLISECONDS,
                 new LinkedBlockingQueue<Runnable>()) {
             @Override

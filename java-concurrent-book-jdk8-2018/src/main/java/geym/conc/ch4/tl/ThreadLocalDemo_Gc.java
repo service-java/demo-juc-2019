@@ -14,6 +14,7 @@ public class ThreadLocalDemo_Gc {
             System.out.println(this.toString() + " is gc");
         }
     };
+
     static volatile CountDownLatch cd = new CountDownLatch(10000);
 
     public static class ParseDate implements Runnable {
@@ -52,9 +53,10 @@ public class ThreadLocalDemo_Gc {
         tl = null;
         System.gc();
         System.out.println("first GC complete!!");
-        //在设置ThreadLocal的时候，会清除ThreadLocalMap中的无效对象
+        // 在设置ThreadLocal的时候，会清除ThreadLocalMap中的无效对象
         tl = new ThreadLocal<SimpleDateFormat>();
         cd = new CountDownLatch(10000);
+
         for (int i = 0; i < 10000; i++) {
             es.execute(new ParseDate(i));
         }

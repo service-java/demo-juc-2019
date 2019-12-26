@@ -12,6 +12,10 @@ public class Biased {
     public static List<Integer> numberList = new Vector<Integer>();
 
     public static void main(String[] args) throws InterruptedException {
+        /**
+         * 启用偏向锁
+         * -XX:+UseBiasedLocking
+         */
         long begin = System.currentTimeMillis();
         int count = 0;
         int startnum = 0;

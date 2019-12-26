@@ -1,5 +1,8 @@
 package geym.conc.ch4.elelock;
 
+import cn.hutool.core.lang.Console;
+import org.junit.Test;
+
 import java.util.Vector;
 
 public class EleLcok {
@@ -12,9 +15,10 @@ public class EleLcok {
         return v.toArray(new String[]{});
     }
 
-    public static void main(String[] args) {
-
-
+    @Test
+    public  void main() {
+        String[] strings = createStrings();
+        Console.log(strings);
     }
 
 }

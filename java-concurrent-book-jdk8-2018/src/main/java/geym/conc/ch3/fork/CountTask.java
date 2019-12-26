@@ -36,6 +36,7 @@ public class CountTask extends RecursiveTask<Long> {
                 subTasks.add(subTask);
                 subTask.fork();
             }
+
             for (CountTask t : subTasks) {
                 sum += t.join();
             }

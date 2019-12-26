@@ -27,6 +27,7 @@ public class ThreadLocalDemo {
     }
 
     public static void main(String[] args) {
+        // SimpleDateFormat.parse() 不是线程安全的
         ExecutorService es = Executors.newFixedThreadPool(10);
         for (int i = 0; i < 1000; i++) {
             es.execute(new ParseDate(i));

@@ -26,10 +26,12 @@ public class TFThreadPoolDemo {
         ExecutorService es = new ThreadPoolExecutor(5, 5,
                 0L, TimeUnit.MILLISECONDS,
                 new SynchronousQueue<Runnable>(),
+                // 自定义线程创建
                 new ThreadFactory() {
                     @Override
                     public Thread newThread(Runnable r) {
                         Thread t = new Thread(r);
+                        // 守护线程
                         t.setDaemon(true);
                         System.out.println("create " + t);
                         return t;
